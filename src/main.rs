@@ -8,6 +8,7 @@ fn main() {
     another_function(5, 6);
     for_test();
     dangle2();
+    dangle3();
     // let reference_to_nothing = dangle();
     // println!("danger is {}", reference_to_nothing);
 }
@@ -51,4 +52,20 @@ fn dangle2() {
 
     s2.push_str("oob");
     println!("{}", s2);
+}
+fn longer<'a> (x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
+}
+fn dangle3() {
+    let r;
+    {
+        let s1 = "rust";
+        let s2 = "ecmascript";
+        r = longer(s1, s2);
+    }
+    println!("{} is longer", r);
 }
