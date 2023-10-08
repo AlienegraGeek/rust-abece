@@ -1,26 +1,41 @@
+mod second_module;
+
+// mod second_module;
+mod school;
+mod nation;
+
+mod second {
+    include!("./second_module.rs");
+}
+
+use school::student;
+
 fn main() {
     println!("Hello, world!");
 
-    let a = 12;
-    println!("a is {}", a);
-    println!("{{}}");
-    runoob();
-    another_function(5, 6);
-    for_test();
-    dangle2();
-    dangle3();
+    // let a = 12;
+    // println!("a is {}", a);
+    // println!("{{}}");
+    // another_function(5, 6);
+    // for_test();
+    // dangle2();
+    // dangle3();
     // let reference_to_nothing = dangle();
     // println!("danger is {}", reference_to_nothing);
+    // println!("This is the main module.");
+    // println!("{}", second_module::message());
+    school::student::util::runoob_func();
+    // second::message();
 }
 
-fn runoob() {
-    let a = 12;
-    println!("a is {}", a);
-}
+// fn school() {
+//     let a = 12;
+//     println!("a is {}", a);
+// }
 
-/// fn another_function() {
-///     println!("Hello, runoob!");
-/// }
+fn top_size() {
+    println!("top size one !")
+}
 
 fn another_function(x: i32, y: i32) {
     println!("x 的值为 : {}", x);
@@ -53,13 +68,15 @@ fn dangle2() {
     s2.push_str("oob");
     println!("{}", s2);
 }
-fn longer<'a> (x: &'a str, y: &'a str) -> &'a str {
+
+fn longer<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
         x
     } else {
         y
     }
 }
+
 fn dangle3() {
     let r;
     {
